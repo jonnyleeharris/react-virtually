@@ -1,0 +1,29 @@
+{
+  "name": "react-virtually",
+  "version": "0.1.0",
+  "description": "High performance virtualized list component for react.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jonnyleeharris/react-virtually.git"
+  },
+  "author": {
+    "name": "Jonathan Harris"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "@types/react": "^16.8.4",
+    "@types/react-dom": "^16.8.3"
+  },
+  "peerDependencies": {},
+  "devDependencies": {
+    "typescript": "^3.4.1"
+  }
+}

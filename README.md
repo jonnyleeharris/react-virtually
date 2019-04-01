@@ -1,3 +1,6 @@
+[![NPM version](https://img.shields.io/npm/v/react-virtually.svg?style=flat)](https://www.npmjs.com/package/react-virtually)
+
+
 # react-virtually
 
 React Virtually is a performant virtualized list component for react that works with just in time measured content with dynamic heights. It supports jump to index, and adding/removing of items from the top and bottom of the list (ideal for implementing chat).

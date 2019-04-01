@@ -1,6 +1,6 @@
 {
   "name": "react-virtually",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "High performance virtualized list component for react.",
   "main": "dist/index.js",
   "types": "dist/index.d.js",

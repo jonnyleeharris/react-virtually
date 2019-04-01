@@ -32,15 +32,12 @@ export class ItemSizeAverager {
    */
   addSample(range: ListRange, size: number) {
     const newTotalWeight = this._totalWeight + range.end - range.start + 1;
-
-//    console.log("range length",range.end - range.start,"size",size);
     if (newTotalWeight) {
       const newAverageItemSize =
           (size + this._averageItemSize * this._totalWeight) / newTotalWeight;
       if (newAverageItemSize) {
         this._averageItemSize = newAverageItemSize;
         this._totalWeight = newTotalWeight;
-//        console.log(newAverageItemSize);
       }
     }
   }

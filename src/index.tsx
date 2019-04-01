@@ -5,7 +5,7 @@ enum OffsetType {
   fromTop, fromBottom
 }
 
-export interface InfiniteListState {
+export interface VirtuallyListState {
   totalContentSize:number;
   range:ListRange,  
   offset:number;  
@@ -15,7 +15,7 @@ export interface InfiniteListState {
   scheduledScrollOffset?:number,
 }
 
-export interface InfiniteListProps {
+export interface VirtuallyListProps {
   itemRendererFactory: (index:number) => JSX.Element;
   startIndex:number,
   endIndex:number
@@ -34,8 +34,7 @@ export declare type ItemIndex = {
   offsetType:OffsetType
 }
 
-export class InfiniteList extends Component<InfiniteListProps,InfiniteListState> {
-  
+export class VirtuallyList extends Component<VirtuallyListProps,VirtuallyListState> {  
 
   private _scrollContainer = React.createRef<HTMLDivElement>();
   private _renderedItems = React.createRef<HTMLDivElement>();
@@ -69,7 +68,7 @@ export class InfiniteList extends Component<InfiniteListProps,InfiniteListState>
     },callback);
   } 
 
-  constructor(props:InfiniteListProps,context:any) {
+  constructor(props:VirtuallyListProps,context:any) {
     super(props,context);    
     
     let startingRange = this._getRangeForCurrentScrollOffset();        
@@ -159,8 +158,7 @@ export class InfiniteList extends Component<InfiniteListProps,InfiniteListState>
       start: startIndex,
       end: startIndex +
           Math.ceil(this._getViewportSize() / this._averager.getAverageItemSize())
-    };
-    //const extra = range.end - this._getDataLength();
+    };    
     const extra = range.end - this.props.endIndex;
     if (extra > 0) {
       range.start = Math.max(0, range.start - extra);
@@ -428,7 +426,7 @@ export class InfiniteList extends Component<InfiniteListProps,InfiniteListState>
     }    
   }
 
-  componentDidUpdate(prevProps:InfiniteListProps, prevState:InfiniteListState) {
+  componentDidUpdate(prevProps:VirtuallyListProps, prevState:VirtuallyListState) {
     
     if(this.props.startIndex != prevProps.startIndex || this.props.endIndex != prevProps.endIndex) {
       let firstItem = this._getFirstIndexInView(OffsetType.fromTop);
@@ -549,4 +547,4 @@ export class InfiniteList extends Component<InfiniteListProps,InfiniteListState>
   }
 }
 
-export default InfiniteList;
+export default VirtuallyList;

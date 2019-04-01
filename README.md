@@ -17,13 +17,12 @@ Rendering large data sets causes performance issues. Optimisation here is key fo
 
 The react-virtually module is available on NPM: `npm install react-virtually`
 
-
 ## Usage
 
 ### Basic usage
 
 
-```
+```tsx
 <InfiniteList
   startIndex={0}
   endIndex={1000}
@@ -48,13 +47,13 @@ The react-virtually module is available on NPM: `npm install react-virtually`
 endIndex|number|true|Defines the end index at which to stop drawing rows (the end of your available data-set - this will usually be the length of your data-set)
 jumpToIndex|number|false|Determines an index to jump to. This list will jump to the scroll position at which the item will appear as close to the top of the list as possible.
 onUserScrolled|(scrollTop:number)|false|A callback that will be called when a scroll event occurs on the list - passing the scroll top. This is useful if you want to add infinite loading logic.
-itemRendererFactory|(index:number):JSX.Element|true|The item renderer function must return a JSX element for a particular row. This row index will always be within the startIndex and endIndex. At this point you should already have the data loaded for the item. If you want to lazily load data, see [lazy loading](#lazyloading)
+itemRendererFactory|(index:number):JSX.Element|true|The item renderer function must return a JSX element for a particular row. This row index will always be within the startIndex and endIndex. At this point you should already have the data loaded for the item. If you want to lazily load data, see [lazy loading](#lazy-loading)
 
-## Lazy loading
+## Lazy-loading
 
 When dealing with large data sets you probably want to optimize network calls as well as your rendering strategy. To do this with React Virtually you can expand your start and end index whenever you want to append or prepend data to the list. Below is an example of how you might do this for a chat implementation:
 
-```
+```ts
 export interface ChatMessage {
   readonly message:String;
 }
@@ -92,7 +91,7 @@ export class TestChatMessages implements ChatMessages {
 }
 ```
 
-```
+```tsx
 import React, { Component } from 'react';
 import { VirtuallyList } from "react-virtually";
 import './App.css';
